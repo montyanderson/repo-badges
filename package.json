@@ -1,0 +1,16 @@
+{
+  "name": "repo-badges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Monty Anderson <monty.linux@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.1",
+    "request": "^2.58.0"
+  }
+}
