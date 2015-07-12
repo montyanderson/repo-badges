@@ -1,6 +1,6 @@
 {
   "name": "repo-badges",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Version badges for NPM apps running on Github.",
   "main": "server.js",
   "dependencies": {
