@@ -1,6 +1,7 @@
-var fs = require("fs"),
-    express = require("express"),
+var express = require("express"),
     request = require("request");
+
+var badge = require("./badge.js");
 
 var app = express();
 
@@ -20,15 +21,12 @@ app.get("/:user/:repo", function(req, res) {
 
             if(data.content) {
                 var packagejson = new Buffer(data.content, "base64").toString("utf8");
-                var version = JSON.parse(packagejson).version;
-
-                fs.readFile(__dirname + "/badge.svg", function(fileErr, badge) {
-                    if(!err) {
-                        res.setHeader("Content-Type", "image/svg+xml");
-                        res.end(badge.toString().replace(/:version/g, version));
-                    }
-                });
             }
+
+            var version = JSON.parse(packagejson).version || "0.0.0";
+            badge(res, version);
+        } else {
+          badge(res, "0.0.0");
         }
     });
 });
